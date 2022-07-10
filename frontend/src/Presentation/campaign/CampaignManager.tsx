@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import CampaignGallery from "./CampaignGallery";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import CreateCampaign from "./CreateCampaign";
-import Editable from "./Editable";
+
+type Props = {
+
+}
 
 // Displays the CampaignGallery or CreateCampaign Page
-function CampaignManager(props) {
+function CampaignManager(_props: Props) {
   let [campaignData, setCampaignData] = useState([]);
 
   const fetchCampaigns = async () => {

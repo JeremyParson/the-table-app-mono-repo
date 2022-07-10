@@ -1,40 +1,32 @@
 import React, { useState } from "react";
-import EditableLabel from "./EditableLabel";
-import EditableImage from "./EditableImage";
 import { Link } from "react-router-dom";
 
+type Props = {
+  campaign: Campaign
+}
+
 // Displays basic campaign info and enables quick edits.
-function CampaignCard(props) {
+function CampaignCard(props: Props) {
   //
   const [expanded, setExpanded] = useState(false);
   const minimizedView = () => <hr className="my-2"></hr>;
 
   const expandedView = () => <p>{props.campaign.description}</p>;
 
-  const handleChange = async (changes) => {
-    console.log(changes);
-    // TO-DO Check if the image is 200 thats ok! if 404 hardcode an image
-    const API_QUERY = `http://localhost:5000/campaigns/${props.campaign._id}`;
+  // const handleChange = async (changes) => {
+  //   console.log(changes);
+  //   // TO-DO Check if the image is 200 thats ok! if 404 hardcode an image
+  //   const API_QUERY = `http://localhost:5000/campaigns/${props.campaign._id}`;
 
-    await fetch(API_QUERY, {
-      method: "post",
-      body: new URLSearchParams(changes),
-    });
-  };
+  //   await fetch(API_QUERY, {
+  //     method: "post",
+  //     body: new URLSearchParams(changes),
+  //   });
+  // };
 
   return (
     <div className="border-2 border-solid border-black rounded-md p-1 bg-blue-munsell h-fit">
-      <EditableImage
-        className="object-contain"
-        source={props.campaign.portrait}
-        name="portrait"
-        handleChange={handleChange}
-      />
-      <EditableLabel
-        value={props.campaign.title}
-        name="title"
-        handleChange={handleChange}
-      />
+      <img src={props.campaign.portrait}></img>
       <h3 className="font-bold">3 Players</h3>
       {expanded ? expandedView() : minimizedView()}
       <button
