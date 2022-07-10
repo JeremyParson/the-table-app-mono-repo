@@ -7,7 +7,8 @@ const CampaignSchema = new Schema(
     description: String,
     creationDate: {type: Date, default: Date.now},
     creator: {type: Schema.Types.ObjectId, required: true},
-    players: [Schema.Types.ObjectId]
+    players: [Schema.Types.ObjectId],
+    public: {type: Boolean, default: true}
   },
   { toJSON: { virtuals: true } }
 );

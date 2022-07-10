@@ -7,7 +7,7 @@ const campaigns = Router();
 // Returns a list of all campaigns
 campaigns.get("/", async (req: Request, res: Response) => {
   try {
-    const campaigns: Array<Object> = await Campaign.find();
+    const campaigns: Array<Object> = await Campaign.find({public: true});
     res.send(campaigns);
   } catch (error) {
     res.status(500).send({ error: "The server ran into an error" });
