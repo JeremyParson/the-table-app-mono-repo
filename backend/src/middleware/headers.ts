@@ -2,7 +2,8 @@ import { NextFunction, Request, Response } from "express"
 
 const headers = (req: Request, res: Response, next: NextFunction) => {
     console.log('headers')
-    res.setHeader("Access-Control-Allow-Origin", `http://localhost:${process.env.REACT_APP_PORT}`);
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader("Access-Control-Allow-Origin", `http://localhost`);
     res.setHeader("Access-Control-Allow-Methods", 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     next();
 };
