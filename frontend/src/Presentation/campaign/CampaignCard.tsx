@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import EditableLabel from "../EditableLabel";
-import EditableImage from "../EditableImage";
+import EditableLabel from "./EditableLabel";
+import EditableImage from "./EditableImage";
 import { Link } from "react-router-dom";
 
 // Displays basic campaign info and enables quick edits.

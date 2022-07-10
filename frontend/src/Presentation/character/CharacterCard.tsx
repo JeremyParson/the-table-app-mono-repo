@@ -1,6 +1,6 @@
 import React from "react";
 import Draggable from "react-draggable";
-import EditableLabel from "../EditableLabel";
+import EditableLabel from "./EditableLabel";
 
 export default function CharacterCard({onClick}) {
   return (
