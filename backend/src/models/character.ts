@@ -72,7 +72,8 @@ const CharacterSchema = new Schema({
   }],
 
   gmNotes: String,
-  creator: {type: Schema.Types.ObjectId, required: true}
+  creator: {type: Schema.Types.ObjectId, required: true},
+  public: {type: Boolean, default: true}
 });
 
 export default CharacterSchema;
