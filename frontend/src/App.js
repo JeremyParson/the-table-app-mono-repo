@@ -1,9 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CampaignManager from './components/CampaignManager';
-import CampaignViewer from './components/CampaignViewer'
-// import InterfacePanel from './components/InterfacePanel';
-// import TablePanel from './components/TablePanel';
+import CampaignManager from './Presentation/campaign/CampaignManager';
+
 
 function App() {
   return (
@@ -11,10 +9,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/campaigns/*" element={<CampaignManager />} />
-          <Route path="/campaign/:id" element={<CampaignViewer />} />
         </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }

@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CampaignCard from "./CampaignCard";
 
+type Props = {
+  data: Array<Campaign>
+}
+
 // Display a grid of campaign cards. Also has a button to create a new campaign
-function CampaignGallery(props) {
+function CampaignGallery(props: Props) {
 
   const renderCampaigns = () =>
     props.data.map((campaign, i) => (

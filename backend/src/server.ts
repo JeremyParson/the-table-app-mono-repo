@@ -20,7 +20,7 @@ app.use(
 app.use(methodOverride("_method"));
 app.use(cors())
 app.all("*", (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", `http://localhost:${process.env.REACT_APP_PORT}`);
   res.setHeader("Access-Control-Allow-Methods", 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();
 });

@@ -1,17 +1,10 @@
 module.exports = {
   content: [
-    "./src/components/InterfacePanel.js",
-    "./src/components/Navigation.js",
     "./src/App.js",
-    "./src/components/CampaignManager.js",
-    "./src/components/CampaignCard.js",
-    "./src/components/CampaignGallery.js",
-    "./src/components/CreateCampaign.js",
-    "./src/components/EditableLabel.js",
-    "./src/components/CampaignViewer.js",
-    "./src/components/ResourceViewer.js",
-    "./src/components/ViewerNavigationBar.js",
-    "./src/components/CharacterCard.js"
+    "./src/presentation/campaign/CampaignManager.tsx",
+    "./src/presentation/campaign/CampaignCard.tsx",
+    "./src/presentation/campaign/CampaignGallery.tsx",
+    "./src/presentation/campaign/CreateCampaign.tsx",
   ],
   theme: {
     extend: {

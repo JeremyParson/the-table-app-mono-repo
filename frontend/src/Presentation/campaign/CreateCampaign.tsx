@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function CreateCampaign(props) {
-  let [formData, setFormData] = useState({});
-  const handleInputChange = (e) => {
+type Props = {
+  data: Array<Campaign>,
+  handleFetch: Function
+}
+
+function CreateCampaign(props: Props) {
+  let [formData, setFormData] = useState({
+    portrait: ''
+  });
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target instanceof HTMLInputElement ? target.checked : target.value;
     const name = target.name;
     setFormData({ ...formData, ...{ [name]: value } });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch("http://localhost:5000/campaigns", {
       method: "post",
@@ -21,20 +28,20 @@ function CreateCampaign(props) {
   return (
     <div>
       <h1 className='text-dutch-white text-4xl'>New Campaign</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col">
         <label className='text-dutch-white'>Campaign Name:</label>
         <input
           name="title"
           type="text"
           placeholder="Name of your campaign"
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e)}
         />
         <label className='text-dutch-white'>Campaign Image Link:</label>
         <input
           type="text"
           name="portrait"
           placeholder="Place link here"
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e)}
         />
         <div className="w-auto mx-20 my-5">
           {formData.portrait ? (
@@ -49,13 +56,13 @@ function CreateCampaign(props) {
           type="text"
           placeholder="System name"
           defaultValue={"5e"}
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e)}
         />
         <label className='text-dutch-white'>Description:</label>
         <textarea
           name="description"
           placeholder="Campaign description"
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e)}
         />
         <input type="submit" className="border-2 rounded-md p-1 bg-tea-green my-3 mx-3" />
       </form>
