@@ -30,6 +30,9 @@ app.all("*", (req, res, next) => {
 import defineUser from "./middleware/defineCurrentUser"
 app.use(defineUser)
 
+import routeLog from "./middleware/routeLog"
+app.use(routeLog)
+
 // Routes
 app.use("/campaigns", campaigns);
 app.use("/characters", characters);

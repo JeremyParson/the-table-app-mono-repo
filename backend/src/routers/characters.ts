@@ -73,13 +73,14 @@ characters.post("/:id", async (req: Request, res: Response) => {
     });
     res.status(201).send(character);
   } catch (error) {
-    res.status(500).send({ error: "Server ran into an error", message: error.message });
+    res.status(500).send({ error: "Server ran into an error" });
   }
 });
 
 // Authorization
 characters.use("/:id", async (req, res, next) => {
   const character = await Character.findById(req.params.id);
+  if (!character) return res.json({message: 'You cannot access this resource'})
   const isCreator = req.currentUser._id.equals(character.creator)
   const isOwner = req.currentUser._id.equals(character.player)
   if (!(isOwner || isCreator)) {
@@ -93,7 +94,7 @@ characters.use("/:id", async (req, res, next) => {
 characters.delete("/:id", async (req: Request, res: Response) => {
   try {
     await Character.findByIdAndDelete(req.params.id);
-    res.status(200).send({ status: "character deleted" });
+    res.status(200).send({ message: "character deleted" });
   } catch (error) {
     res.status(500).send({ error: "Server ran into an error" });
   }
@@ -102,7 +103,8 @@ characters.delete("/:id", async (req: Request, res: Response) => {
 // Update a specific character with ID
 characters.patch("/:id", async (req: Request, res: Response) => {
   try {
-    const character = await Character.findByIdAndUpdate(req.params.id, req.body);
+    await Character.findByIdAndUpdate(req.params.id, req.body);
+    const character = await Character.findById(req.params.id);
     res.status(200).send(character);
   } catch (error) {
     res.status(500).send({ error: "Server ran into an error" });
@@ -119,7 +121,7 @@ characters.copy("/:id", async (req: Request, res: Response) => {
         doc.save();
       }
     )
-    res.status(200).send({ status: "ok" });
+    res.status(200).send({ message: "ok" });
   } catch (error) {
     res.status(500).send({ error: "Server ran into an error" });
   }

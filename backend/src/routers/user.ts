@@ -24,7 +24,6 @@ router.get("/", async (req: Request, res: Response) => {
 // Register a new user
 router.post("/", async (req: Request, res: Response) => {
   try {
-    console.log("Started", req.body)
     const passwordDigest = bcrypt.hashSync(req.body.password, 10);
     const user = new User({
       ...req.body,
