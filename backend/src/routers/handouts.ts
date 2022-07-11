@@ -8,9 +8,9 @@ const handouts = Router();
 handouts.get("/", async (req: Request, res: Response) => {
   try {
     const handouts = await Handout.find();
-    res.status(200).send(handouts);
+    res.status(200).json(handouts);
   } catch (error) {
-    res.status(500).send({ error: "Server ran into an error" });
+    res.status(500).json({ error: "Server ran into an error" });
   }
 });
 
@@ -18,16 +18,16 @@ handouts.get("/", async (req: Request, res: Response) => {
 handouts.get("/:id", async (req: Request, res: Response) => {
   try {
     const handout = await Handout.findById(req.params.id);
-    res.status(200).send(handout);
+    res.status(200).json(handout);
   } catch (error) {
-    res.status(500).send({ error: "Server ran into an error" });
+    res.status(500).json({ error: "Server ran into an error" });
   }
 });
 
 // Authentication
 handouts.use((req, res, next) => {
   if (!req.currentUser) {
-    res.status(400).send({ error: "You must be logged in" });
+    res.status(400).json({ error: "You must be logged in" });
     return
   }
   next();
@@ -44,17 +44,18 @@ handouts.post("/:id", async (req: Request, res: Response) => {
       campaign: req.params.id,
       creator: req.currentUser._id
     });
-    res.status(201).send(handout);
+    res.status(201).json(handout);
   } catch (error) {
-    res.status(500).send({ error: "Server ran into an error" });
+    res.status(500).json({ error: "Server ran into an error" });
   }
 });
 
 // Authorization
 handouts.use("/:id", async (req, res, next) => {
   const handout = await Handout.findById(req.params.id);
+  if(!handout) return res.json({error: "You cannot access this resource"})
   if (!req.currentUser._id.equals(handout.creator)) {
-    res.status(400).send({ error: "You cannot access this resource" });
+    res.status(400).json({ error: "You cannot access this resource" });
     return
   }
   next();
@@ -64,9 +65,9 @@ handouts.use("/:id", async (req, res, next) => {
 handouts.delete("/:id", async (req: Request, res: Response) => {
   try {
     await Handout.findByIdAndDelete(req.params.id);
-    res.status(200).send({ status: "handout deleted" });
+    res.status(200).json({ message: "handout deleted" });
   } catch (e) {
-    res.status(500).send({ error: "Server ran into an error" });
+    res.status(500).json({ error: "Server ran into an error" });
   }
 });
 
@@ -80,9 +81,9 @@ handouts.copy("/:id", async (req: Request, res: Response) => {
           doc.save();
         }
       )
-      res.status(200).send({ status: "handout duplicated" });
+      res.status(200).json({ message: "handout duplicated" });
     } catch (error) {
-      res.status(500).send({ error: "Server ran into an error" });
+      res.status(500).json({ error: "Server ran into an error" });
     }
   });
 
