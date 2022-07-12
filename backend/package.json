@@ -22,10 +22,12 @@
   "homepage": "https://github.com/JeremyParson/the-table-backend#readme",
   "dependencies": {
     "@types/cors": "^2.8.12",
+    "@types/socket.io": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^6.2.7"
+    "mongoose": "^6.2.7",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
