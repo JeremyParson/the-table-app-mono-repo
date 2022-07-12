@@ -21,4 +21,10 @@ UserSchema.virtual("campaigns", {
   foreignField: "players",
 });
 
+UserSchema.virtual("characters", {
+  ref: "Character",
+  localField: "_id",
+  foreignField: "player",
+});
+
 export default UserSchema;

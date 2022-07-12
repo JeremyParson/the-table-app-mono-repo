@@ -26,6 +26,7 @@ function CampaignCard(props: Props) {
 
   return (
     <div className="border-2 border-solid border-black rounded-md p-1 bg-blue-munsell h-fit">
+      <h2 className="text-xl">{props.campaign.title}</h2>
       <img src={props.campaign.portrait}></img>
       <h3 className="font-bold">3 Players</h3>
       {expanded ? expandedView() : minimizedView()}

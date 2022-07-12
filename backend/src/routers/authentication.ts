@@ -27,6 +27,8 @@ router.get("/profile", async (req: Request, res: Response) => {
   try {
     console.log("Get user info")
     const user = await User.findById(req.currentUser._id)
+      .populate("characters")
+      .populate("campaigns")
     res.json(user)
   } catch (err) {
     res.json({message: 'The server ran into an error'})

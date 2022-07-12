@@ -11,6 +11,8 @@ import { UserReducerContext } from "./Presentation/context/UserReducerContext";
 import CampaignManager from "./Presentation/view/campaign/CampaignManager";
 import Home from "./Presentation/view/components/Home";
 import NavigationBar from "./Presentation/view/components/NavigationBar";
+import Registration from "./Presentation/view/user/Registration"
+import Dashboard from "./Presentation/view/user/Dashboard"
 
 function App() {
   const [user, setUser] = useState({
@@ -21,11 +23,13 @@ function App() {
 
   return (
     <UserReducerContext.Provider value={{user, setUser}}>
-      <div className="App w-screen h-screen">
-        <NavigationBar />
+      <div className="App w-screen h-screen overflow-x-hidden">
         <BrowserRouter>
+        <NavigationBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path='/register' element={<Registration />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path="/campaigns/*" element={<CampaignManager />} />
           </Routes>
         </BrowserRouter>
