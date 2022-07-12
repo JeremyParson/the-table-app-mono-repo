@@ -21,7 +21,7 @@ app.use(methodOverride("_method"));
 app.use(cors())
 app.all("*", (req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
-  res.setHeader("Access-Control-Allow-Origin", `http://localhost`);
+  res.setHeader("Access-Control-Allow-Origin", `http://localhost:3001`);
   res.setHeader("Access-Control-Allow-Methods", 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();
 });

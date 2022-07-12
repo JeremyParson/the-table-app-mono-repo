@@ -5,6 +5,8 @@ module.exports = {
     "./src/presentation/campaign/CampaignCard.tsx",
     "./src/presentation/campaign/CampaignGallery.tsx",
     "./src/presentation/campaign/CreateCampaign.tsx",
+    "./src/Presentation/Home.tsx",
+    "./src/Presentation/components/NavigationBar.tsx"
   ],
   theme: {
     extend: {

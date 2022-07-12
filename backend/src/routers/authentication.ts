@@ -8,6 +8,7 @@ const router = Router()
 // authenticate user and send JWT Token
 router.post("/", async (req: Request, res: Response) => {
   let user = await User.findOne({ email: req.body.email })
+  console.log(req.body, user != null, bcrypt.compareSync(req.body.password, user.passwordDigest))
   if (
     !user ||
     !(bcrypt.compareSync(req.body.password, user.passwordDigest))
