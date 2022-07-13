@@ -2,15 +2,17 @@ import Mongoose, { Schema } from "mongoose";
 
 const CharacterSchema = new Schema({
   name: String,
-  player: {type: Schema.Types.ObjectId},
+  player: { type: Schema.Types.ObjectId },
   level: { type: Number, min: 1, max: 20 },
   experience: Number,
   race: String,
-  classes: Array,
+  class: '',
   alignment: String,
   inspiration: Number,
+  age: String,
+  size: String,
 
-  armorClass: Number,
+  armorClass: String,
   speed: Number,
   initiative: Number,
 
@@ -34,7 +36,7 @@ const CharacterSchema = new Schema({
   wisdomSave: Boolean,
   charismaSave: Boolean,
 
-  skills: [String],
+  skills: String,
 
   backgroundName: String,
   personalTraits: String,
@@ -43,9 +45,9 @@ const CharacterSchema = new Schema({
   flaws: String,
 
   bonus: Number,
-  proficiencies: [String],
+  proficiencies: String,
 
-  featuresAndTraits: [String],
+  featuresAndTraits: String,
 
   backstory: String,
   characterImage: String,
@@ -66,14 +68,14 @@ const CharacterSchema = new Schema({
     },
   ],
 
-  campaigns: [{
+  campaign: {
     type: Mongoose.Types.ObjectId,
     ref: "Campaign",
-  }],
+  },
 
   gmNotes: String,
-  creator: {type: Schema.Types.ObjectId, required: true},
-  public: {type: Boolean, default: true}
+  creator: { type: Schema.Types.ObjectId, required: true },
+  public: { type: Boolean, default: true },
 });
 
 export default CharacterSchema;
