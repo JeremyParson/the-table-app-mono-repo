@@ -21,7 +21,7 @@ export default function SelectClassTab(props: Props) {
   }
 
   return (
-    <div className="grid h-full overflow-y-scroll">
+    <div className="grid h-full overflow-y-scroll w-2/3">
       <div className="grid grid-cols-3 [grid-area:1/1] text-dutch-white">
         {classes.map((_class, i) => (
           <div

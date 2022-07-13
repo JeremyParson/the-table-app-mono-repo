@@ -26,7 +26,7 @@ export default function AbilityTab(props: Props) {
     <>
       <h2 className="text-4xl text-tea-green">You have {props.points} points</h2>
       <div className="grid h-full overflow-hidden grid-cols-3">
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Strength</b>
           </h3>
@@ -35,7 +35,7 @@ export default function AbilityTab(props: Props) {
           <button onClick={(_e) => decrease("strength")}>Down</button>
         </section>
 
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Dexterity</b>
           </h3>
@@ -44,7 +44,7 @@ export default function AbilityTab(props: Props) {
           <button onClick={(_e) => decrease("dexterity")}>Down</button>
         </section>
 
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Constitution</b>
           </h3>
@@ -53,7 +53,7 @@ export default function AbilityTab(props: Props) {
           <button onClick={(_e) => decrease("constitution")}>Down</button>
         </section>
 
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Intelligence</b>
           </h3>
@@ -62,7 +62,7 @@ export default function AbilityTab(props: Props) {
           <button onClick={(_e) => decrease("intelligence")}>Down</button>
         </section>
 
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Wisdom</b>
           </h3>
@@ -71,7 +71,7 @@ export default function AbilityTab(props: Props) {
           <button onClick={(_e) => decrease("wisdom")}>Down</button>
         </section>
 
-        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center">
+        <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Charisma</b>
           </h3>

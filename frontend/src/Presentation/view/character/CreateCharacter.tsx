@@ -97,7 +97,7 @@ export default function CreateCharacter() {
   }
 
   return (
-    <main className="w-[99vw] h-[90vh] overflow-hidden">
+    <main className="w-[70vw] h-[90vh] overflow-hidden m-auto">
       <header>
         <button
           className={tab == "setup" ? selected : ""}
@@ -137,7 +137,7 @@ export default function CreateCharacter() {
         </button>
       </header>
 
-      <main className="h-full">{renderTab()}</main>
+      <main className="h-full flex flex-col items-center flex-shrink-0">{renderTab()}</main>
     </main>
   );
 }

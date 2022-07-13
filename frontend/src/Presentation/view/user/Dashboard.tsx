@@ -13,6 +13,7 @@ export default function Dashboard() {
         <Link to="new-campaign">
           <p>Create a new campaign</p>
         </Link>
+        <Link to='/campaigns'>Find a campaign</Link>
         <div className="overflow-y-scroll h-5/6 grid grid-cols-2">
           {campaigns.map((campaign, i) => (
             <CampaignCard campaign={campaign} key={i} />

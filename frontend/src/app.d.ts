@@ -4,6 +4,8 @@ type Campaign = {
   title: string;
   _id: string;
   error?: string;
+  players?: [string];
+  
 };
 
 type User = {

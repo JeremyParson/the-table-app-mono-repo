@@ -4,7 +4,7 @@ type Props = {
 
 export default function SummaryTab({ character }: Props) {
   return (
-    <div className="h-3/4 overflow-y-auto rounded-xl bg-blue-munsell p-4">
+    <div className="h-3/4 w-full overflow-y-auto rounded-xl bg-blue-munsell p-4">
       <header className="bg-dutch-white rounded-md">
         <h2 className="text-xl">
           <b>{character.name}</b>

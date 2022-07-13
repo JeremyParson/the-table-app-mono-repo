@@ -46,6 +46,12 @@ export async function getUserInfo() {
   return json;
 }
 
+export async function getUser(id: string) {
+  const response = await fetch(`${process.env.REACT_APP_SERVER_URL}user/${id}`);
+  const json = await response.json();
+  return json;
+}
+
 export function logoutUser() {
   localStorage.removeItem("token");
 }
