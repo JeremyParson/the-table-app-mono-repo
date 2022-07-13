@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import headers from "../middleware/headers";
-import { Campaign } from "../models";
+import { Campaign, User } from "../models";
 
 const campaigns = Router();
 
@@ -34,6 +34,24 @@ campaigns.use((req, res, next) => {
   }
   next();
 })
+
+// Determines if user can join a campaign and adds them
+campaigns.get("/:id/join", async (req: Request, res: Response) => {
+  try {
+    const campaign = await Campaign.findById(req.params.id)
+    const players = campaign.players;
+    for(let id of players) {
+      if (id.equals(req.currentUser._id)) return res.status(400)
+    }
+    players.push(req.currentUser._id)
+    campaign.update({players})
+    campaign.save()
+    res.status(200).json(campaign);
+  } catch (error) {
+    res.status(500).json({ error: "Join failed" });
+    console.log(error.message)
+  }
+});
 
 // Create a new campaign
 campaigns.post("/", async (req: Request, res: Response) => {

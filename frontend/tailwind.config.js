@@ -10,7 +10,11 @@ module.exports = {
     "./src/Presentation/view/user/Registration.tsx",
     "./src/Presentation/view/user/Dashboard.tsx",
     "./src/Presentation/view/character/CreateCharacter.tsx",
-    "./src/Presentation/view/character/SelectRaceTab.tsx"
+    "./src/Presentation/view/character/SelectRaceTab.tsx",
+    "./src/Presentation/view/campaign/CampaignDetail.tsx",
+    "./src/Presentation/view/character/SelectClassTab.tsx",
+    "./src/Presentation/view/character/AbilityTab.tsx",
+    "./src/Presentation/view/character/SummaryTab.tsx"
   ],
   theme: {
     extend: {

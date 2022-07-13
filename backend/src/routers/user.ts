@@ -5,6 +5,17 @@ import * as bcrypt from "bcrypt";
 
 const router = Router();
 
+// Get basic user info
+router.get("/:id", async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.params.id);
+    const {username} = user
+    res.json({username}).status(200);
+  } catch (err) {
+    res.status(500);
+  }
+});
+
 // Index all users of admins only
 router.get("/", async (req: Request, res: Response) => {
   try {

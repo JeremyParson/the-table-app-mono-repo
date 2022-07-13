@@ -55,6 +55,19 @@ export async function updateCampaign(id: string, changes: { [x: string]: string 
     return json;
 }
 
+export async function joinCampaign(id: string): Promise<Campaign>{
+    const TOKEN = localStorage.getItem('token');
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}campaigns/${id}/join`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${TOKEN}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+        }
+    })
+    const json = await response.json();
+    return json;
+}
+
 function encode(body: { [x: string]: string | number | boolean }) {
   var formBody = [];
   for (var property in body) {
