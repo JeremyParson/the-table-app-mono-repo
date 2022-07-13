@@ -8,7 +8,9 @@ module.exports = {
     "./src/Presentation/view/components/Home.tsx",
     "./src/Presentation/view/components/NavigationBar.tsx",
     "./src/Presentation/view/user/Registration.tsx",
-    "./src/Presentation/view/user/Dashboard.tsx"
+    "./src/Presentation/view/user/Dashboard.tsx",
+    "./src/Presentation/view/character/CreateCharacter.tsx",
+    "./src/Presentation/view/character/SelectRaceTab.tsx"
   ],
   theme: {
     extend: {
@@ -17,7 +19,8 @@ module.exports = {
         "blue-munsell": "#068D9D",
         "tea-green": "#BFD7B5",
         "dutch-white": "#F2E7C9",
-        "danger": "#db4242"
+        "danger": "#db4242",
+        "black": "#000000"
       },
     },
   },

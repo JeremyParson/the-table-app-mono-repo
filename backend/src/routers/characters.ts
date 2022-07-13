@@ -48,6 +48,7 @@ characters.post("/", async (req: Request, res: Response) => {
     });
     res.status(201).send(character);
   } catch (error) {
+    console.log(error.message)
     res.status(500).send({ error: "Server ran into an error" });
   }
 });
@@ -73,6 +74,7 @@ characters.post("/:id", async (req: Request, res: Response) => {
     });
     res.status(201).send(character);
   } catch (error) {
+    console.log(error.message)
     res.status(500).send({ error: "Server ran into an error" });
   }
 });

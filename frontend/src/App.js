@@ -13,6 +13,8 @@ import Home from "./Presentation/view/components/Home";
 import NavigationBar from "./Presentation/view/components/NavigationBar";
 import Registration from "./Presentation/view/user/Registration"
 import Dashboard from "./Presentation/view/user/Dashboard"
+import CreateCampaign from "./Presentation/view/campaign/CreateCampaign";
+import CreateCharacter from "./Presentation/view/character/CreateCharacter"
 
 function App() {
   const [user, setUser] = useState({
@@ -31,6 +33,8 @@ function App() {
             <Route path='/register' element={<Registration />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path="/campaigns/*" element={<CampaignManager />} />
+            <Route path="/dashboard/new-campaign" element={<CreateCampaign />} />
+            <Route path="/dashboard/new-character" element={<CreateCharacter />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -12,6 +12,24 @@ type User = {
   email: string;
 };
 
+type Race = {
+  name: string;
+  speed: string;
+  age: string;
+  size: string;
+  size_description: string;
+  alignment: string;
+  ability_bonuses: [
+    {
+      ability_score: {
+        index: string;
+        name: string;
+      };
+      bonus: number;
+    }
+  ];
+};
+
 type Character = {
   _id: string;
   name: string;
@@ -19,13 +37,13 @@ type Character = {
   level: number;
   experience: number;
   race: string;
-  classes: Array<string>;
+  class: string;
   alignment: string;
   inspiration: number;
 
-  armorClass: number;
-  speed: number;
-  initiative: number;
+  armorClass: string;
+  speed: string;
+  initiative: string;
 
   currentHitPoints: number;
   hitPointMaximum: number;
@@ -33,12 +51,12 @@ type Character = {
   hitDiceMaximum: string;
   currentHitDice: string;
 
-  strength: { type: number; min: 1; max: 20 };
-  dexterity: { type: number; min: 1; max: 20 };
-  constitution: { type: number; min: 1; max: 20 };
-  intelligence: { type: number; min: 1; max: 20 };
-  wisdom: { type: number; min: 1; max: 20 };
-  charisma: { type: number; min: 1; max: 20 };
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
 
   strengthSave: boolean;
   dexteritySave: boolean;
@@ -47,7 +65,7 @@ type Character = {
   wisdomSave: boolean;
   charismaSave: boolean;
 
-  skills: [string];
+  skills: string;
 
   backgroundName: string;
   personalTraits: string;
@@ -56,9 +74,9 @@ type Character = {
   flaws: string;
 
   bonus: number;
-  proficiencies: Array<string>;
+  proficiencies: string;
 
-  featuresAndTraits: Array<string>;
+  featuresAndTraits: string;
 
   backstory: string;
   characterImage: string;
@@ -71,19 +89,13 @@ type Character = {
   failedDeathSaves: number;
   succeededDeathSaves: number;
 
-  equipment: [
-    {
-      name: string;
-      damage: string;
-      type: string;
-    }
-  ];
+  equipment: string;
 
   campaigns: Array<string>;
 
   gmNotes: string;
   creator: string;
-  public: string;
+  public: boolean;
   error?: string;
 };
 
@@ -98,7 +110,112 @@ type Handout = {
   description: string;
   gmNotes: string;
   players: Array<string>;
-  campaign: string
+  campaign: string;
   creator: string;
   error?: string;
+};
+
+type Class = {
+  name: string;
+  hit_die: number;
+  proficiency_choices: [
+    {
+      choose: number;
+      type: string;
+      from: [
+        {
+          index: string;
+          name: string;
+          url: string;
+        }
+      ];
+    }
+  ];
+  proficiencies: [
+    {
+      index: string;
+      name: string;
+      url: string;
+    }
+  ];
+  saving_throws: [
+    {
+      index: string;
+      name: string;
+      url: string;
+    }
+  ];
+  starting_equipment: [
+    {
+      equipment: {
+        index: string;
+        name: string;
+        url: string;
+      };
+      quantity: number;
+    }
+  ];
+  starting_equipment_options: [
+    {
+      choose: number;
+      type: string;
+      from: [
+        {
+          equipment: {
+            index: string;
+            name: string;
+            url: string;
+          };
+          quantity: number;
+        }
+      ];
+    },
+    {
+      choose: number;
+      type: string;
+      from: [
+        {
+          equipment: {
+            index: string;
+            name: string;
+            url: string;
+          };
+          quantity: number;
+        },
+        {
+          equipment_option: {
+            choose: number;
+            type: string;
+            from: {
+              equipment_category: {
+                index: string;
+                name: string;
+                url: string;
+              };
+            };
+          };
+        }
+      ];
+    }
+  ];
+};
+
+type SelectedClass = {
+  name: string;
+  hit_die: number;
+  starting_proficiencies: [
+    {
+      index: string;
+      name: string;
+      url: string;
+    }
+  ];
+  selected_proficiencies: [string];
+  saving_throws: [
+    {
+      index: string;
+      name: string;
+      url: string;
+    }
+  ];
 };

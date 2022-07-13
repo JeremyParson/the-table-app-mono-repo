@@ -11,6 +11,10 @@ export async function detailCharacter (id: string): Promise<Character> {
 }
 
 export async function createCharacter (data: { [x: string]: string | number | boolean | string[]}): Promise<Character> {
+    delete data['_id'];
+    if (data?.campaign && data.campaign == '') {
+        delete data['campaign']
+    }
     const TOKEN = localStorage.getItem('token');
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}characters`, {
         method: 'POST',
