@@ -45,7 +45,7 @@ export default function CampaignDetailModel() {
   }
 
   async function launch() {
-    navigate(`/session//${campaign._id}`)
+    navigate(`/session/${campaign._id}`)
   }
 
   return { campaign, players, creator, join, launch };

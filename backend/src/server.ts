@@ -8,8 +8,10 @@ import characters from "./routers/characters";
 import handouts from "./routers/handouts";
 import user from "./routers/user";
 import authentication from "./routers/authentication";
+import createIoInstance from "./socket.io";
 
 const app: Express.Application = Express();
+createIoInstance(app, process.env.SOCKET_PORT);
 
 // Used for POST data extraction
 app.use(
@@ -44,3 +46,4 @@ app.use("/user", user);
 app.listen(process.env.PORT, () => {
   console.log(`Server started on port ${process.env.PORT}`);
 });
+
