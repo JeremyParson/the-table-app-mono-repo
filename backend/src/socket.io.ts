@@ -38,6 +38,7 @@ export default function createIoInstance(
 
     socket.on("message", async (message: Message) => {
         if (!await authentication(message)) return console.log("socket user message rejected", message.sessionId);
+        console.log('Message sent to session', message.sessionId)
         socket.to(message.sessionId).emit('message', message)
     })
 
