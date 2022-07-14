@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import { UserReducerContext } from "../../../Presentation/context/UserReducerContext";
 
+const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL);
+
 export default function SessionModel() {
-  const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL);
-  const [isConnected, setIsConnected] = useState(null);
+  const [isConnected, setIsConnected] = useState(socket.connected);
   const [messages, setMessages]: any = useState([]);
   const { user } = useContext(UserReducerContext);
 
@@ -24,17 +25,24 @@ export default function SessionModel() {
       setMessages((prevMessages: any) => [...prevMessages, message]);
     });
 
-    socket.emit("join_session", {
-      sessionId: id,
-      token: `Bearer ${localStorage.getItem("token")}`,
-    });
-
     return () => {
       socket.off("connect");
       socket.disconnect();
       socket.off("disconnect");
     };
   }, []);
+
+  useEffect(() => {
+    console.log(isConnected)
+    if (isConnected) {
+      socket.emit("join_session", {
+        sessionId: id,
+        token: `Bearer ${localStorage.getItem("token")}`,
+      });
+    } else {
+      socket.connect()
+    }
+  }, [isConnected]);
 
   function sendMessage(message: any) {
     console.log("send message");

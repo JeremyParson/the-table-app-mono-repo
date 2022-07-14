@@ -16,7 +16,7 @@ export default function SessionChat(props: Props) {
   }, [props.messages]);
 
   function handleMessage(message: string) {
-    if (!message.length) return
+    if (!message.length) return;
     props.sendMessage(message);
     setMessage("");
   }
@@ -24,8 +24,9 @@ export default function SessionChat(props: Props) {
   return (
     <div className="flex flex-col items-end bg-blue-munsell w-64 h-[91vh] absolute right-0">
       <section className="overflow-y-scroll overflow-x-hidden h-5/6 w-full">
-        {props.messages.map((message) => (
+        {props.messages.map((message, i) => (
           <div
+            key={i}
             className={`rounded-xl w-9/12 px-2 m-1 relative ${
               user.username == message.sender
                 ? "left-1/4 bg-dutch-white"
