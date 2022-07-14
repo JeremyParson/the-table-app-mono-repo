@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
-
-type Message = {
-    sender: string,
-    content: string
-}
+import { UserReducerContext } from "../../../Presentation/context/UserReducerContext";
 
 export default function SessionModel() {
   const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL);
   const [isConnected, setIsConnected] = useState(null);
-
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages]: any = useState([]);
+  const { user } = useContext(UserReducerContext);
 
   const { id } = useParams();
 
@@ -24,8 +20,8 @@ export default function SessionModel() {
       setIsConnected(false);
     });
 
-    socket.on("message", (data: Message) => {
-        setMessages([...messages, data])
+    socket.on("message", (message: Message) => {
+      setMessages((prevMessages: any) => [...prevMessages, message]);
     });
 
     socket.emit("join_session", {
@@ -39,5 +35,16 @@ export default function SessionModel() {
       socket.off("disconnect");
     };
   }, []);
-  return { isConnected, socket, messages };
+
+  function sendMessage(message: any) {
+    console.log("send message");
+    socket.emit("message", {
+      sessionId: id,
+      content: message,
+      token: `Bearer ${localStorage.getItem("token")}`,
+      sender: user.username,
+    });
+  }
+
+  return { isConnected, socket, messages, sendMessage };
 }

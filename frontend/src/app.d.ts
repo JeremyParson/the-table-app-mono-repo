@@ -5,7 +5,13 @@ type Campaign = {
   _id: string;
   error?: string;
   players?: [string];
-  
+};
+
+type Message = {
+  sender: string;
+  content: string;
+  sessionId: string;
+  token: string;
 };
 
 type User = {
