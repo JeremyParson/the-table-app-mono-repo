@@ -70,6 +70,7 @@ characters.post("/:id", async (req: Request, res: Response) => {
     const character = await Character.create({
       ...req.body,
       creator: req.currentUser._id,
+      player: req.currentUser._id,
       campaigns: [req.params.id]
     });
     res.status(201).send(character);

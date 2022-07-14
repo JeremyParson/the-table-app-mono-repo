@@ -33,7 +33,7 @@ describe("", () => {
 
   beforeEach(async () => {
     await authenticateUser(EMAIL, PASSWORD);
-    character = await createCharacter(characterData);
+    character = await createCharacter('', characterData);
     logoutUser();
   });
 
@@ -87,7 +87,7 @@ describe("", () => {
   });
 
   it("Does not create a new character if not logged in", async () => {
-    const character = await createCharacter(characterData)
+    const character = await createCharacter('', characterData)
     expect(character?.error).toBeTruthy();
   });
 

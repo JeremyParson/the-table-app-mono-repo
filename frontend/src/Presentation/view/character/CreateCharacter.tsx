@@ -25,7 +25,8 @@ export default function CreateCharacter() {
     charisma,
     points,
     values,
-    saveCharacter
+    saveCharacter,
+    setCampaign
   } = useModel();
   const selected = "bg-dutch-white";
 
@@ -57,8 +58,9 @@ export default function CreateCharacter() {
               name="campaign"
               size={campaignOptions.length}
               value={campaign}
-              onChange={(e) => onChange(e.target.name, e.target.value)}
+              onChange={(e) => setCampaign(e.target.value)}
             >
+              <option value='' >None</option>
               {campaignOptions.map((campaign, i) => (
                 <option value={campaign._id} key={i}>
                   {campaign.title}

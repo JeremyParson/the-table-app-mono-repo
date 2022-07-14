@@ -16,7 +16,7 @@ import Dashboard from "./Presentation/view/user/Dashboard"
 import CreateCampaign from "./Presentation/view/campaign/CreateCampaign";
 import CreateCharacter from "./Presentation/view/character/CreateCharacter"
 import CampaignDetail from "./Presentation/view/campaign/CampaignDetail"
-import Session from "./Presentation/view/campaign/Session"
+import Session from "./Presentation/view/campaign/session/Session"
 
 function App() {
   const [user, setUser] = useState({
