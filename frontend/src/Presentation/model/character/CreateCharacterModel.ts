@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../../../Data/user/DataStore";
 import { createCharacter } from "../../../Data/character/DataStore";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function CreateCharacterModel() {
+  const navigate = useNavigate();
+  const {id} = useParams();
   const [values, setValues] = useState({
     _id: '',
     player: '',
@@ -70,11 +73,11 @@ export default function CreateCharacterModel() {
 
     equipment: "",
 
-    campaign: "",
-
     gmNotes: "",
     public: true,
   });
+
+  const [campaign, setCampaign] = useState('');
 
   const [campaignOptions, setCampaignOptions] = useState([]);
 
@@ -90,7 +93,8 @@ export default function CreateCharacterModel() {
   }
 
   async function saveCharacter () {
-    await createCharacter(values)
+    await createCharacter(campaign, values)
+    navigate(-1)
   }
 
   function onChange(prop: string, value: string | number) {
@@ -163,6 +167,8 @@ export default function CreateCharacterModel() {
     handleRaceSelect,
     handleAbilityChange,
     handleClassSelect,
-    saveCharacter
+    saveCharacter,
+    campaign,
+    setCampaign
   };
 }
