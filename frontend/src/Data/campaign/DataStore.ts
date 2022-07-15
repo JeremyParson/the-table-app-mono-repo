@@ -1,3 +1,5 @@
+
+
 export async function indexCampaigns () {
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}campaigns`);
     const json = await response.json();

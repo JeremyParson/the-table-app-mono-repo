@@ -4,6 +4,10 @@ import SelectClassTab from "./SelectClassTab";
 import AbilityTab from "./AbilityTab";
 import SummaryTab from "./SummaryTab";
 
+type Props = {
+  forCampaign: string
+}
+
 export default function CreateCharacter() {
   const {
     tab,

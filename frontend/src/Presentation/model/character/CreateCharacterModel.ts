@@ -77,7 +77,7 @@ export default function CreateCharacterModel() {
     public: true,
   });
 
-  const [campaign, setCampaign] = useState('');
+  const [campaign, setCampaign] = useState(id ? id : '');
 
   const [campaignOptions, setCampaignOptions] = useState([]);
 

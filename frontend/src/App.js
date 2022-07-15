@@ -39,6 +39,7 @@ function App() {
             <Route path="/dashboard/new-character" element={<CreateCharacter />} />
             <Route path='campaign/:id' element={<CampaignDetail />} />
             <Route path='session/:id' element={<Session />} />
+            <Route path='session/:id/new-character' element={<CreateCharacter />} />
           </Routes>
         </BrowserRouter>
       </div>
