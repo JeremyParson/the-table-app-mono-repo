@@ -21,9 +21,13 @@ function CreateCampaign() {
   return (
     <div>
       <h1 className="text-dutch-white text-4xl">New Campaign</h1>
-      <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="flex flex-col w-1/3 m-auto"
+      >
         <label className="text-dutch-white">Campaign Name:</label>
         <input
+          className="rounded-md"
           name="title"
           value={title}
           type="text"
@@ -32,6 +36,7 @@ function CreateCampaign() {
         />
         <label className="text-dutch-white">Campaign Image Link:</label>
         <input
+          className="rounded-md"
           type="text"
           name="portrait"
           value={portrait}
@@ -45,9 +50,9 @@ function CreateCampaign() {
             <p className="text-dutch-white">No image</p>
           )}
         </div>
-        <label className="text-dutch-white">System:</label>
         <label className="text-dutch-white">Description:</label>
         <textarea
+          className="rounded-md"
           name="description"
           placeholder="Campaign description"
           value={description}

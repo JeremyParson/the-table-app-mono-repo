@@ -28,13 +28,17 @@ export default function AuthenticateUserModel() {
   }
 
   function gotoDash() {
-    navigate('dashboard')
+    navigate("dashboard");
   }
 
   async function authUser() {
     await loginUser(values.email, values.password);
     const user = await getProfile();
     setUser(user);
+    setValues({
+      email: "",
+      password: "",
+    });
     navigate("dashboard");
   }
 
@@ -45,6 +49,6 @@ export default function AuthenticateUserModel() {
     user,
     display,
     setDisplay,
-    gotoDash
+    gotoDash,
   };
 }

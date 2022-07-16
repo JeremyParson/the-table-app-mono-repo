@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import { FormEvent } from "react";
 import useViewModel from "../../model/user/AuthenticateUserModel";
 
 export default function LoginUser() {
@@ -60,6 +60,7 @@ export default function LoginUser() {
             className="border-2 border-black mx-3 my-1 py-1 px-1"
           />
         </form>
+        <button onClick={_e => setDisplay(true)}>Cancel</button>
       </div>
     );
   }
