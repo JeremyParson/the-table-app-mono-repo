@@ -17,10 +17,6 @@ type SessionConnection = {
   token: string;
 };
 
-type RoomIndex = {
-
-}
-
 export default function createIoInstance(
   app: Express.Application,
   port: string
@@ -29,7 +25,7 @@ export default function createIoInstance(
   server.listen(port);
   let io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "*",
       methods: ["GET", "POST"],
     },
   });
@@ -40,11 +36,11 @@ export default function createIoInstance(
     // Leave rooms
     socket.on("disconnecting", (reason) => {
       console.log("a user disconnecting");
-      socket.rooms.forEach(room => {
+      socket.rooms.forEach((room) => {
         if (socket.id != room) {
-          socket.leave(room)
+          socket.leave(room);
         }
-      })
+      });
     });
 
     // Handle user disconnect
@@ -53,7 +49,7 @@ export default function createIoInstance(
     });
 
     // Handle messages sent by user. If it begins with '/' interpret it as a command
-    socket.on("message", async (message: Message) => {      
+    socket.on("message", async (message: Message) => {
       let content = message.content;
       if (content.charAt(0) == "/") {
         if (content.slice(1, 5).toLowerCase() == "roll") {
@@ -69,19 +65,27 @@ export default function createIoInstance(
         }
       }
 
-      socket.rooms.forEach(room => {
-        console.log(socket.id, room)
+      socket.rooms.forEach((room) => {
         if (socket.id != room) {
           io.in(room).emit("message", message);
         }
-      })
+      });
+    });
+
+    socket.on("campaign_updated", async () => {
+      socket.rooms.forEach((room) => {
+        if (socket.id != room) {
+          io.in(room).emit("campaign_updated");
+        }
+      });
     });
 
     socket.on("join_session", async (data: SessionConnection) => {
-      if (!(await authentication(data))) return console.log("socket join room rejected: ", data.sessionId);
+      if (!(await authentication(data)))
+        return console.log("socket join room rejected: ", data.sessionId);
       await socket.join(data.sessionId);
       console.log("socket user joined room: ", data.sessionId);
-      console.log(socket.rooms)
+      console.log(socket.rooms);
     });
   });
 

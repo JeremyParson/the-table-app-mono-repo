@@ -16,7 +16,7 @@ const CampaignSchema = new Schema(
 CampaignSchema.virtual("characters", {
   ref: "Character",
   localField: "_id",
-  foreignField: "campaigns",
+  foreignField: "campaign",
 });
 
 CampaignSchema.virtual("handouts", {

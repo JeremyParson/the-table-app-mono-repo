@@ -31,12 +31,12 @@ function CampaignCard(props: Props) {
       <h3 className="font-bold">3 Players</h3>
       {expanded ? expandedView() : minimizedView()}
       <button
-        className="border-2 rounded-md p-2 bg-tea-green bottom-0 mx-2"
+        className="bg-tea-green px-8 py-2 m-2 rounded-full"
         onClick={() => setExpanded(!expanded)}
       >
         {expanded ? "Minimize" : "Expand"}
       </button>
-      <button className="border-2 rounded-md p-2 bg-tea-green bottom-0 mx-2">
+      <button className="bg-tea-green px-8 py-2 m-2 rounded-full">
         <Link to={`/campaign/${props.campaign._id}`}>Open</Link>
       </button>
     </div>

@@ -17,7 +17,8 @@ module.exports = {
     "./src/Presentation/view/character/SummaryTab.tsx",
     "./src/Presentation/view/campaign/session/SessionChat.tsx",
     "./src/Presentation/view/campaign/Session.tsx",
-    "./src/Presentation/view/campaign/session/ThtTable.tsx"
+    "./src/Presentation/view/campaign/session/ThtTable.tsx",
+    "./src/Presentation/view/campaign/session/CharacterSheet.tsx"
   ],
   theme: {
     extend: {

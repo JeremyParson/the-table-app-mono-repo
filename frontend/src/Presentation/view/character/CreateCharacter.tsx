@@ -4,6 +4,10 @@ import SelectClassTab from "./SelectClassTab";
 import AbilityTab from "./AbilityTab";
 import SummaryTab from "./SummaryTab";
 
+type Props = {
+  forCampaign: string
+}
+
 export default function CreateCharacter() {
   const {
     tab,
@@ -100,7 +104,7 @@ export default function CreateCharacter() {
 
   return (
     <main className="w-[70vw] h-[90vh] overflow-hidden m-auto">
-      <header>
+      <header className="text-dutch-white">
         <button
           className={tab == "setup" ? selected : ""}
           onClick={(_e) => setTab("setup")}

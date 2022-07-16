@@ -17,6 +17,8 @@ import CreateCampaign from "./Presentation/view/campaign/CreateCampaign";
 import CreateCharacter from "./Presentation/view/character/CreateCharacter"
 import CampaignDetail from "./Presentation/view/campaign/CampaignDetail"
 import Session from "./Presentation/view/campaign/session/Session"
+import CharacterView from "./Presentation/view/character/CharacterView"
+import EditCampaign from "./Presentation/view/campaign/EditCampaign"
 
 function App() {
   const [user, setUser] = useState({
@@ -38,7 +40,10 @@ function App() {
             <Route path="/dashboard/new-campaign" element={<CreateCampaign />} />
             <Route path="/dashboard/new-character" element={<CreateCharacter />} />
             <Route path='campaign/:id' element={<CampaignDetail />} />
+            <Route path='campaign/:id/edit' element={<EditCampaign />} />
             <Route path='session/:id' element={<Session />} />
+            <Route path='session/:id/new-character' element={<CreateCharacter />} />
+            <Route path='character/:id' element={<CharacterView />} />
           </Routes>
         </BrowserRouter>
       </div>

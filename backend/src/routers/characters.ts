@@ -71,7 +71,7 @@ characters.post("/:id", async (req: Request, res: Response) => {
       ...req.body,
       creator: req.currentUser._id,
       player: req.currentUser._id,
-      campaigns: [req.params.id]
+      campaign: campaign._id
     });
     res.status(201).send(character);
   } catch (error) {
