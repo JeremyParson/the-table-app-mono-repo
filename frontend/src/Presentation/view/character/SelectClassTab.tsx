@@ -21,18 +21,18 @@ export default function SelectClassTab(props: Props) {
   }
 
   return (
-    <div className="grid h-full overflow-y-scroll w-2/3">
-      <div className="grid grid-cols-3 [grid-area:1/1] text-dutch-white">
+    <div className="grid h-full overflow-y-scroll md:w-2/3">
+      <div className="grid md:grid-cols-3 grid-cols-2 [grid-area:1/1] text-dutch-white">
         {classes.map((_class, i) => (
           <div
             onClick={(_e) => setSelected(_class.name)}
             key={i}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center my-10"
           >
             <h2>{_class.name}</h2>
             <div className="w-32 h-32">
               <img
-                className="object-contain"
+                className="object-cover"
                 src={`/classes/${_class.name.toLowerCase()}.png`}
               />
             </div>

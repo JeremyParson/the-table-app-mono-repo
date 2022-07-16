@@ -20,7 +20,7 @@ export default function Dashboard() {
           <p>Create a new campaign</p>
         </Link>
         <Link to="/campaigns">Find a campaign</Link>
-        <div className="overflow-y-scroll h-5/6 grid grid-cols-2">
+        <div className="overflow-y-scroll h-5/6 grid md:grid-cols-2">
           {campaigns.map((campaign, i) => (
             <CampaignCard campaign={campaign} key={i} />
           ))}
@@ -31,7 +31,7 @@ export default function Dashboard() {
         <Link to="new-character">
           <p>Create a new character</p>
         </Link>
-        <div className="overflow-y-scroll h-5/6 grid grid-cols-2">
+        <div className="overflow-y-scroll h-5/6 grid md:grid-cols-2">
           {characters.map((character, i) => (
             <CharacterCard character={character} key={i} />
           ))}

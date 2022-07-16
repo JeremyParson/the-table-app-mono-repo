@@ -14,12 +14,12 @@ export default function SelectRaceTab(props: Props) {
 
   return (
     <div className="grid h-full overflow-y-scroll">
-      <div className="grid grid-cols-3 [grid-area:1/1] text-dutch-white">
+      <div className="grid md:grid-cols-3 grid-cols-2 [grid-area:1/1] text-dutch-white">
         {races.map((race, i) => (
-          <div onClick={(_e) => setSelected(race.name)} key={i} className="flex flex-col items-center">
+          <div onClick={(_e) => setSelected(race.name)} key={i} className="flex flex-col items-center my-4">
             <h2>{race.name}</h2>
             <div className="w-32 h-32">
-                <img className="object-contain" src={`/races/${race.name.toLowerCase()}.png`}/>
+                <img className="object-cover" src={`/races/${race.name.toLowerCase()}.png`}/>
             </div>
           </div>
         ))}
