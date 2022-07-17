@@ -14,6 +14,12 @@ Express JS
 Mongoose
 Socket IO
 
+### Frontend
+The frontend uses a Presentation, Domain, and Data layer architecture to allow separation of concerns in large stateful components.
+
+### Backend
+The backend is a REST api that uses an ORM that interfaces with a remote mongo database.
+
 ## Bugs and missing features.
 - Character creation needs more polishing
 - Campaign resources cannot be edited
