@@ -25,7 +25,6 @@ The backend is a REST api that uses an ORM that interfaces with a remote mongo d
 - Campaign resources cannot be edited
 - Server does not parse list data properly
 - Typing the roll command in chat incorrectly crashes the app
-- User cannot sign out of the app
 - Socket io updates are buggy between mobile and desktop
 - Certain resources should not be visible to players in session
 - GM should be able to see additional information
