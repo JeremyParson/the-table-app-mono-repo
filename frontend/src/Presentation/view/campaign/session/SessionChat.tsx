@@ -22,7 +22,7 @@ export default function SessionChat(props: Props) {
   }
 
   return (
-    <div className="flex flex-col items-end bg-blue-munsell w-64 h-[91vh] absolute right-0">
+    <div className="flex flex-col items-end bg-blue-munsell sm:w-64 sm:h-[91vh] absolute right-0 bottom-0 h-[40vh]">
       <section className="overflow-y-scroll overflow-x-hidden h-5/6 w-full">
         {props.messages.map((message, i) => (
           <div

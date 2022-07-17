@@ -14,24 +14,24 @@ export default function Dashboard() {
       >
         Logout
       </button>
-      <section className="w-1/2 h-[80vh] rounded-2xl bg-blue-munsell absolute bottom-0">
+      <section className="w-1/2 h-[70vh] rounded-2xl bg-blue-munsell absolute bottom-0 overflow-hidden">
         <h2 className="text-xl">Campaigns</h2>
         <Link to="new-campaign">
           <p>Create a new campaign</p>
         </Link>
         <Link to="/campaigns">Find a campaign</Link>
-        <div className="overflow-y-scroll h-5/6 grid grid-cols-2">
+        <div className="overflow-y-scroll h-5/6 grid md:grid-cols-2">
           {campaigns.map((campaign, i) => (
             <CampaignCard campaign={campaign} key={i} />
           ))}
         </div>
       </section>
-      <section className="w-1/2 h-[80vh] rounded-2xl bg-tea-green absolute bottom-0 right-0">
+      <section className="w-1/2 h-[70vh] rounded-2xl bg-tea-green absolute bottom-0 right-0">
         <h2 className="text-xl">Characters</h2>
         <Link to="new-character">
           <p>Create a new character</p>
         </Link>
-        <div className="overflow-y-scroll h-5/6 grid grid-cols-2">
+        <div className="overflow-y-scroll h-5/6 grid md:grid-cols-2">
           {characters.map((character, i) => (
             <CharacterCard character={character} key={i} />
           ))}

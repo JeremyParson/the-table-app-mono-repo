@@ -25,7 +25,7 @@ export default function AbilityTab(props: Props) {
   return (
     <>
       <h2 className="text-4xl text-tea-green">You have {props.points} points</h2>
-      <div className="grid h-full overflow-hidden grid-cols-3">
+      <div className="grid h-full overflow-hidden grid-cols-3 h-2/3">
         <section className="bg-tea-green rounded-xl flex items-center flex-col justify-center border-2 border-black">
           <h3>
             <b>Strength</b>
