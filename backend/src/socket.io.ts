@@ -57,6 +57,8 @@ export default function createIoInstance(
           let [quantity, dice] = roll.split("d");
           let sum = 0;
           let rolls = 0;
+          if (isNaN(Number(quantity)) || isNaN(Number(dice))) return console.log("wrong format")
+
           while (rolls != Number(quantity)) {
             rolls += 1;
             sum += Math.ceil(Math.random() * Number(dice));
