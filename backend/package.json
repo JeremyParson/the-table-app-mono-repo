@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "The backend for database interactions of The Table app",
   "main": "server.js",
+  "engines": {
+    "npm": ">=8.1.2",
+    "node": ">=16.13.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon dist/server.js",
@@ -22,15 +26,21 @@
   "homepage": "https://github.com/JeremyParson/the-table-backend#readme",
   "dependencies": {
     "@types/cors": "^2.8.12",
+    "@types/socket.io": "^3.0.2",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^6.2.7"
+    "mongoose": "^6.2.7",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/plugin-transform-arrow-functions": "^7.16.7",
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/method-override": "^0.0.32",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^17.0.23",

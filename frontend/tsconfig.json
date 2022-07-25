@@ -13,6 +13,7 @@
                 "node_modules/*"
             ]
         },
+        "jsx": "react-jsx",
         "allowSyntheticDefaultImports": true,
         "removeComments": true,
         "preserveConstEnums": true,
